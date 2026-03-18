@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { LogOut, Home as HomeIcon, Calendar, Users, Settings, FileText, Home, Image, MessageSquare } from 'lucide-react';
+import { LogOut, Home as HomeIcon, Calendar, Users, Settings, FileText, Home, Image as ImageIcon, MessageSquare, CheckCircle, Clock } from 'lucide-react';
+import API_BASE_URL from '../config';
+
 import EventManagement from './EventManagement';
 import HighlightManagement from './HighlightManagement';
 import GalleryManagement from './GalleryManagement';
@@ -20,7 +22,7 @@ const AdminDashboard = ({ onLogout }) => {
 
   const fetchPendingRequests = async () => {
     try {
-      const response = await fetch('http://localhost:5000/api/guesthouse');
+      const response = await fetch(`${API_BASE_URL}/api/guesthouse`);
       const data = await response.json();
       if (data.success) {
         const pending = data.data.filter(req => req.status === 'pending').length;

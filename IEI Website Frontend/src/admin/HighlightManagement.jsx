@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Plus, Edit, Trash2, FileText, X, Image as ImageIcon } from 'lucide-react';
+import API_BASE_URL from '../config';
 
-const API_URL = 'http://localhost:5000/api/highlights';
+
+const API_URL = `${API_BASE_URL}/api/highlights`;
 
 const HighlightManagement = () => {
   const [highlights, setHighlights] = useState([]);
@@ -245,7 +247,7 @@ const HighlightCard = ({ highlight, onEdit, onDelete }) => {
     <div className="bg-white rounded-lg shadow-md hover:shadow-lg transition overflow-hidden">
       {highlight.images && highlight.images.length > 0 && (
         <img
-          src={highlight.images[0].startsWith('http') ? highlight.images[0] : `http://localhost:5000${highlight.images[0]}`}
+          src={highlight.images[0].startsWith('http') ? highlight.images[0] : `${API_BASE_URL}${highlight.images[0]}`}
           alt={highlight.title}
           className="w-full h-48 object-cover"
         />
@@ -368,7 +370,7 @@ const HighlightModal = ({
                   {existingImages.map((img, index) => (
                     <div key={index} className="relative group">
                       <img
-                        src={img.startsWith('http') ? img : `http://localhost:5000${img}`}
+                        src={img.startsWith('http') ? img : `${API_BASE_URL}${img}`}
                         alt={`Existing ${index + 1}`}
                         className="w-full h-24 object-cover rounded"
                       />

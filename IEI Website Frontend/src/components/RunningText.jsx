@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import API_BASE_URL from '../config';
 
 const RunningText = () => {
   const [message, setMessage] = useState('');
@@ -13,7 +14,7 @@ const RunningText = () => {
 
   const fetchActiveMessage = async () => {
     try {
-      const response = await fetch('http://localhost:5000/api/messages/active');
+      const response = await fetch(`${API_BASE_URL}/api/messages/active`);
       const data = await response.json();
       if (data.success && data.data) {
         setMessage(data.data.message);

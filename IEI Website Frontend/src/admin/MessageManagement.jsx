@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Trash2, Edit2, Plus } from 'lucide-react';
+import API_BASE_URL from '../config';
 
-const API_URL = 'http://localhost:5000/api/messages';
+
+const API_URL = `${API_BASE_URL}/api/messages`;
 
 const MessageManagement = () => {
   const [messages, setMessages] = useState([]);

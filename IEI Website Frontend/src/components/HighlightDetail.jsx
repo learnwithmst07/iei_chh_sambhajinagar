@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { X, ChevronLeft, ChevronRight, Calendar } from 'lucide-react';
+import { ChevronLeft, ChevronRight, X, Calendar, MapPin, Clock, Users } from 'lucide-react'
+import API_BASE_URL from '../config'
+;
 
 const HighlightDetail = ({ highlight, onClose }) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -46,7 +48,7 @@ const HighlightDetail = ({ highlight, onClose }) => {
           {images.length > 0 && (
             <div className="relative w-full h-96 bg-gray-100 rounded-lg overflow-hidden mb-6">
               <img
-                src={images[currentImageIndex].startsWith('http') ? images[currentImageIndex] : `http://localhost:5000${images[currentImageIndex]}`}
+                src={images[currentImageIndex].startsWith('http') ? images[currentImageIndex] : `${API_BASE_URL}${images[currentImageIndex]}`}
                 alt={highlight.title}
                 className="w-full h-full object-contain"
               />
@@ -140,7 +142,7 @@ const HighlightDetail = ({ highlight, onClose }) => {
                     }`}
                   >
                     <img
-                      src={img.startsWith('http') ? img : `http://localhost:5000${img}`}
+                      src={img.startsWith('http') ? img : `${API_BASE_URL}${img}`}
                       alt={`Thumbnail ${index + 1}`}
                       className="w-full h-full object-cover"
                     />

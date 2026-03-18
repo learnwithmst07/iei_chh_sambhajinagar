@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import { Trash2, Edit2, Plus, X } from 'lucide-react'
+import API_BASE_URL from '../config'
 
-const API_URL = 'http://localhost:5000/api/gallery';
+
+const API_URL = `${API_BASE_URL}/api/gallery`;
 
 const GalleryManagement = () => {
   const [galleryItems, setGalleryItems] = useState([]);
@@ -332,7 +334,7 @@ const GalleryManagement = () => {
                     {existingImages.map((imagePath) => (
                       <div key={imagePath} className="relative group">
                         <img
-                          src={imagePath.startsWith('http') ? imagePath : `http://localhost:5000${imagePath}`}
+                          src={imagePath.startsWith('http') ? imagePath : `${API_BASE_URL}${imagePath}`}
                           alt="Gallery"
                           className="w-full h-24 object-cover rounded-lg"
                         />

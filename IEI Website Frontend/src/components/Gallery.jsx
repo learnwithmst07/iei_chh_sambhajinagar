@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import { ChevronLeft, ChevronRight, X } from 'lucide-react'
+import API_BASE_URL from '../config'
 
-const API_URL = 'http://localhost:5000/api/gallery';
+
+const API_URL = `${API_BASE_URL}/api/gallery`;
 
 const Gallery = () => {
   const [galleryItems, setGalleryItems] = useState([]);
@@ -140,7 +142,7 @@ const Gallery = () => {
             {/* Image Display */}
             <div className="relative bg-black rounded-lg overflow-hidden">
               <img
-                src={selectedItem.images[currentImageIndex].startsWith('http') ? selectedItem.images[currentImageIndex] : `http://localhost:5000${selectedItem.images[currentImageIndex]}`}
+                src={selectedItem.images[currentImageIndex].startsWith('http') ? selectedItem.images[currentImageIndex] : `${API_BASE_URL}${selectedItem.images[currentImageIndex]}`}
                 alt={selectedItem.title}
                 className="w-full h-auto max-h-[70vh] object-contain"
               />
@@ -212,7 +214,7 @@ const GalleryCard = ({ item, onOpen }) => {
         {item.images && item.images.length > 0 ? (
           <>
             <img
-              src={item.images[currentImageIndex].startsWith('http') ? item.images[currentImageIndex] : `http://localhost:5000${item.images[currentImageIndex]}`}
+              src={item.images[currentImageIndex].startsWith('http') ? item.images[currentImageIndex] : `${API_BASE_URL}${item.images[currentImageIndex]}`}
               alt={item.title}
               className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
             />

@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Plus, Edit, Trash2, Calendar, MapPin, Clock, Users, X } from 'lucide-react';
+import API_BASE_URL from '../config';
 
-const API_URL = 'http://localhost:5000/api/events';
+
+const API_URL = `${API_BASE_URL}/api/events`;
 
 const EventManagement = () => {
   const [events, setEvents] = useState([]);

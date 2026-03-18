@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { Home, User, Phone, Mail, Calendar, Clock, Send, CheckCircle, Upload, Eye } from 'lucide-react';
+import API_BASE_URL from '../config';
 
-const API_URL = 'http://localhost:5000/api/guesthouse';
+
+const API_URL = `${API_BASE_URL}/api/guesthouse`;
 
 const GuestHouse = () => {
   const [formData, setFormData] = useState({

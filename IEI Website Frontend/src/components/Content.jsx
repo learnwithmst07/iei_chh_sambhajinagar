@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import { FileText, ChevronLeft, ChevronRight } from 'lucide-react'
+import API_BASE_URL from '../config'
 
-const API_URL = 'http://localhost:5000/api/highlights';
+
+const API_URL = `${API_BASE_URL}/api/highlights`;
 
 const Content = ({ onHighlightClick }) => {
   const [highlights, setHighlights] = useState([]);
@@ -123,7 +125,7 @@ const HighlightCard = ({ highlight, onMoreClick }) => {
         {images.length > 0 ? (
           <>
             <img
-              src={images[currentImageIndex].startsWith('http') ? images[currentImageIndex] : `http://localhost:5000${images[currentImageIndex]}`}
+              src={images[currentImageIndex].startsWith('http') ? images[currentImageIndex] : `${API_BASE_URL}${images[currentImageIndex]}`}
               alt={highlight.title}
               className="w-full h-full object-cover"
             />

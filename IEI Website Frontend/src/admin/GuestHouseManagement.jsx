@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Home, CheckCircle, XCircle, Trash2, MessageCircle, Calendar, Clock, User, Phone, Mail, Eye, X } from 'lucide-react';
+import API_BASE_URL from '../config';
 
-const API_URL = 'http://localhost:5000/api/guesthouse';
+
+const API_URL = `${API_BASE_URL}/api/guesthouse`;
 
 const GuestHouseManagement = () => {
   const [requests, setRequests] = useState([]);
