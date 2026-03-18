@@ -1,0 +1,11 @@
+{
+    "builds": [
+        {
+            "src": "IEI_Website_Frontend/package.json",
+            "use": "@vercel/static-build",
+            "config": {
+                "distDir": "dist"
+            }
+        }
+    ]
+}
