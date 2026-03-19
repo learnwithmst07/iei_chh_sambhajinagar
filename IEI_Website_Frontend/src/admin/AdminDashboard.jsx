@@ -107,7 +107,7 @@ const AdminDashboard = ({ onLogout }) => {
                   : 'border-transparent text-gray-600 hover:text-gray-900'
               }`}
             >
-              <Image className="w-4 h-4 inline mr-2" />
+              <ImageIcon className="w-4 h-4 inline mr-2" />
               Gallery
             </button>
             <button
